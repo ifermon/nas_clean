@@ -1,0 +1,10 @@
+[Unit]
+Description=Organizes the video security footage
+
+[Service]
+Type=oneshot
+ExecStart=/home/homebridge/nas_clean/organize_security_files.py
+User=homebridge
+
+[Install]
+WantedBy=multi-user.target

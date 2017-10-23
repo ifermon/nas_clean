@@ -1,0 +1,10 @@
+To install:
+
+from this directory:
+sudo ln organize_security_files.service /etc/systemd/system/organize_security_files.service
+sudo ln organize_security_files.timer /etc/systemd/system/organize_security_files.timer
+
+sudo systemctl enable organize_security_files.service
+sudo systemctl enable organize_security_files.timer
+
+sudo systemctl start organize_security_files.timer

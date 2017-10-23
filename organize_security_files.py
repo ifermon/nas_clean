@@ -14,8 +14,8 @@ import fnmatch
 import sys
 import time
 
-BASE_DIR = "/mnt/usbstorage/security/"
-DEST_DIR = "/mnt/usbstorage/security/"
+BASE_DIR = "/media/usb/security/"
+DEST_DIR = "/media/usb/security/"
 SECS_IN_DAY = 86400 # 1 day of seconds
 
 print("{} | Organizing files.".format(time.asctime()))
@@ -88,7 +88,11 @@ for f in new_file_list:
         continue
 
     #print("{} | Moving \"{}\" to \"{}\"".format(time.asctime(), f, new_f))
-    os.renames(f, new_f)
+    try:
+        os.renames(f, new_f)
+    except OSError:
+        print("{} | Moving \"{}\" to \"{}\"".format(time.asctime(), f, new_f))
+        raise
 
 # Uncomment to write list of already existing files
 #flist.close()
